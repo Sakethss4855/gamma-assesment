@@ -1,0 +1,14 @@
+CREATE TABLE orders (
+    id BIGINT PRIMARY KEY,
+    customer_id BIGINT,
+    order_date DATE NOT NULL,
+    amount DECIMAL(12,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
+);
+
+CREATE TABLE customers (
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(100),
+    customer_type VARCHAR(20) NOT NULL
+);
